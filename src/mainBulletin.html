@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="./output.css" rel="stylesheet">
+    <title>Interactive Bulletin Board</title>
+</head>
+<body>
+<!--Navigation Bar-->
+<div class="fixed flex items-center h-16 p-2 w-full bg-none z-50">
+  <!--Hamburger Menu Icon-->
+  <button id="mobile-menu-button" class="md:hidden p-2 text-gray-700 hover:text-black order-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  <!--Bulletin Name-->
+ <h1 class="text-xl font-bold text-gray-900 hidden md:block ml-2 mr-auto">BALA</h1>
+  <!--Buttons Pc Container-->
+  <div class="hidden md:flex gap-5 shrink-0 mx-auto order-2"> 
+      <!--ButtonsPC-->
+      <button class="bg-transparent hover:blur text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded transition duration-200">Announcements</button>
+       <button class="bg-transparent hover:blur text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded transition duration-200">Events</button>
+       <button class="bg-transparent hover:blur text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded transition duration-200">Fun Facts</button>
+       <button class="bg-transparent hover:blur text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded transition duration-200">Contact</button>
+  </div>
+    <!--Chronicles Logo-->
+  <img class="h-10.5 rounded-full ml-auto order-3" src="/assets/logo.jpg" alt="Logo">
+</div>
+
+
+<!--Buttons Cp-->
+<div id="mobile-menu" class="hidden md:hidden w-full bg-amber-200 shadow-lg pt-16 absolute z-40 text-center">
+    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-amber-100">Announcements</a>
+    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-amber-100">Events</a>
+    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-amber-100">Fun Facts</a>
+    <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-amber-100">Contact</a>
+</div>
+    <!--Welcome Section-->
+<div class="flex h-screen w-full text-center justify-center bg-linear-to-b from-amber-200 to-amber-300 items-center">
+    <img class="absolute opacity-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96" src="/assets/chronio-removebg-preview.png" alt="bg">
+    <h1 class="text-7xl font-bold text-gray-900 z-10">Welcome to Bulletin Board</h1>
+</div>
+    
+
+<!--Main Container-->
+  
+<div class="grid grid-cols-8 grid-rows-8 gap-5 bg-white h-screen p-5">
+<div class="col-span-6 row-span-5 border border-black rounded-tl-3xl rounded-md p-5 bg-teal-700 motion:preset-fade motion-play">1</div>
+    <div class="col-span-2 row-span-3 col-start-7 border border-black rounded-tr-3xl rounded-md p-5 bg-teal-700">2</div>
+    <div class="col-span-2 row-span-5 col-start-7 row-start-4 border border-black rounded-br-3xl rounded-md p-5 bg-teal-700">3</div>
+    <div class="col-span-3 row-span-3 row-start-6 border border-black rounded-bl-3xl rounded-md p-5 bg-teal-700 animate-ping">4</div>
+    <div class="col-span-2 row-span-2 col-start-4 row-start-6 border border-black rounded-md p-5 bg-teal-700 animate-spin">6</div>
+    <div class="col-span-2 col-start-4 row-start-8 border border-black rounded-md p-5 bg-teal-700 animate-bounce">7</div>
+    <div class="row-span-3 col-start-6 row-start-6 border border-black rounded-md p-5 bg-teal-700 animate-pulse">8</div>
+</div>
+
+
+
+    <!--Script for Hamburger Menu-->
+<script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+ </body>
+</html>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <link href="./output.css" rel="stylesheet">
+  <title>Authentication Page</title>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center bg-[url(/assets/gray2.jpeg)]">
+     
+  <!-- Card -->
+  <div class="p-8 rounded-lg w-[350px] shadow-xl border border-black backdrop-blur-3xl">
+    <!-- SIGNUP -->
+    <div id="signup">
+      <h1 class="text-4xl font-extrabold uppercase text-[#4A403A]">Signup</h1>
+
+      <form class="flex flex-col gap-3 mt-5" id="signup-form" action="adminPanel.html" method="get">
+        <!-- Username -->
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#C49A6C] text-white transition-colors">
+            <!-- svg uses fill-current so it follows text color -->
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" class="fill-current">
+              <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/>
+            </svg>
+          </label>
+          <input id="signup-username" type="text" placeholder="Username" required
+                 class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <!-- Email -->
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#C49A6C] text-white transition-colors text-2xl">
+            @
+          </label>
+          <input id="signup-email" type="email" placeholder="Email" required
+                 class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <!-- Password -->
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#C49A6C] text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" class="fill-current">
+              <path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/>
+            </svg>
+          </label>
+          <input id="signup-password" type="password" placeholder="Password" required
+                 class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <!-- Repeat Password -->
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#C49A6C] text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" class="fill-current">
+              <path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/>
+            </svg>
+          </label>
+          <input id="signup-repeat-password" type="password" placeholder="Repeat Password" required class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <button class="bg-[#C49A6C] text-white py-3 rounded-full font-semibold mt-3 hover:bg-[#4A403A] transition-colors">Signup</button>
+      </form>
+
+      <p class="text-sm mt-2 text-[#4A403A]">Already have an account? <span id="to-login" class="text-[#F4B400] cursor-pointer hover:underline">Login</span></p>
+    </div>
+
+    <!-- LOGIN (hidden by default) -->
+    <div id="login" class="hidden">
+      <h1 class="text-4xl font-extrabold uppercase text-[#4A403A]">Login</h1>
+
+      <form class="flex flex-col gap-3 mt-5" id="login-form">
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#C49A6C] text-white transition-colors text-2xl">
+            @
+          </label>
+          <input id="login-email" type="email" placeholder="Email" required
+                 class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <div class="flex input-group items-stretch">
+          <label class="w-12 h-12 flex justify-center items-center rounded-l-lg bg-[#181717] text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" class="fill-current">
+              <path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z"/>
+            </svg>
+          </label>
+          <input id="login-password" type="password" placeholder="Password" required
+                 class="grow h-12 bg-[#F7EFD6] border-2 border-[#F7EFD6] rounded-r-lg px-3 focus:outline-none focus:border-[#F4B400]" />
+        </div>
+
+        <button class="bg-[#C49A6C] text-white py-3 rounded-full font-semibold mt-3 hover:bg-[#4A403A] transition-colors">Login</button>
+      </form>
+
+      <p class="text-sm mt-2 text-[#4A403A]">Don’t have an account? <span id="to-signup" class="text-[#F4B400] cursor-pointer hover:underline">Signup</span></p>
+    </div>
+
+  </div>
+
+  <!-- JS: toggle views + label focus behavior -->
+  <script>
+    // view toggles
+    const signupEl = document.getElementById('signup');
+    const loginEl  = document.getElementById('login');
+    document.getElementById('to-login')?.addEventListener('click', ()=> { signupEl.classList.add('hidden'); loginEl.classList.remove('hidden'); });
+    document.getElementById('to-signup')?.addEventListener('click', ()=> { loginEl.classList.add('hidden'); signupEl.classList.remove('hidden'); });
+
+    // focus behavior: add/remove focused classes on label when input gets focus
+    document.querySelectorAll('.input-group').forEach(group => {
+      const input = group.querySelector('input');
+      const label = group.querySelector('label');
+      if (!input || !label) return;
+
+      input.addEventListener('focus', () => {
+        // change label bg and icon/text color on focus
+        label.classList.add('bg-[#4A403A]');
+        label.classList.remove('bg-[#C49A6C]');
+        label.classList.add('text-white');
+      });
+
+      input.addEventListener('blur', () => {
+        label.classList.remove('bg-[#4A403A]');
+        label.classList.add('bg-[#C49A6C]');
+        // keep text-white (icons) — your original used white icons; if you prefer revert to something else, change here
+        label.classList.add('text-white');
+      });
+
+      // Optional: also allow clicking the label to focus the input
+      label.addEventListener('click', () => input.focus());
+    });
+  </script>
+
+<!--Firebase Database-->
+
+ <script type="module">
+    // Import all necessary Firebase functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+            from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyA-zQBTdHE1j5Gi1M3kYpyX603h6E8a6iQ",
+      authDomain: "bulletinboard-fb682.firebaseapp.com",
+      projectId: "bulletinboard-fb682",
+      storageBucket: "bulletinboard-fb682.firebasestorage.app",
+      messagingSenderId: "648301553708",
+      appId: "1:648301553708:web:fb083c41f53b00fed1c989"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Function to save user data
+    function writeUserData(userId, username, email) {
+      set(ref(db, 'users/' + userId), {
+        username: username,
+        email: email,
+        joinDate: new Date().toISOString()
+      })
+      .then(() => {
+        console.log("User data successfully written to database.");
+        window.location.href = 'adminPanel.html';
+      })
+      .catch((error) => {
+        console.error("Failed to write user data:", error);
+        alert("Signup was successful, but data failed to save. Please try again.");
+      });
+    }
+
+    // 2. SIGNUP HANDLER
+
+    const signupForm = document.getElementById('signup-form'); // Correct ID
+
+    if (signupForm) {
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // 1. Get Values
+        const username = document.getElementById('signup-username').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const repeatPassword = document.getElementById('signup-repeat-password').value;
+        
+        if (password !== repeatPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        // 2. Firebase Authentication
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log("User signed up via Auth:", user);
+                // 3. Database Save
+                writeUserData(user.uid, username, email);
+            })
+            .catch((error) => {
+                console.error("Signup failed:", error.code, error.message);
+                alert(`Signup failed: ${error.message}`);
+            });
+      });
+    }
+
+    // 3. LOGIN HANDLER
+
+    const loginForm = document.getElementById('login-form');
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        // Stop the default HTML form submission
+        e.preventDefault(); 
+
+        // 1. Get Values from login inputs (using their correct IDs)
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        // 2. Firebase Authentication
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // SUCCESS: User signed in
+                const user = userCredential.user;
+                console.log("User successfully logged in:", user);
+                // Redirect ONLY on success
+                window.location.href = 'adminPanel.html';
+            })
+            .catch((error) => {
+                // FAILURE: Display error message
+                const errorMessage = "Invalid Email or Password. Please try again.";
+                console.error("Login failed:", error.code, error.message);
+                alert(errorMessage);
+            });
+      });
+    }
+
+  </script>
+</body>
+</html>
